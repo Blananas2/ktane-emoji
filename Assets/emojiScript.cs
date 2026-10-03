@@ -216,6 +216,8 @@ public class emojiScript : MonoBehaviour {
         if (Regex.IsMatch(command, @"^punch\s+\d\s+\d$",RegexOptions.IgnoreCase))
         {
             yield return null;
+            yield return "strike";
+            yield return "solve";
             int[] punches = command.Split(' ').Where(s=>!string.IsNullOrEmpty(s)).Skip(1).Select(nb => int.Parse(nb)).ToArray();
             yield return PunchScreen(punches);
         }
